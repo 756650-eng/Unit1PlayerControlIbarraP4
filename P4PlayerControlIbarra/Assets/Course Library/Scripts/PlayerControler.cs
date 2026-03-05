@@ -9,6 +9,7 @@ public class PlayerControler : MonoBehaviour
     public Camera mainCamera;
     public Camera hoodCamera;
     public KeyCode switchKey;
+    public string inputID;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,8 +20,8 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         // Move the vehicle forward
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        forwardInput = Input.GetAxis("Vertical" + inputID);
 
         // Moves the car forward based on vertical input
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
